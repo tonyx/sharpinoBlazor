@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="sharpinoSettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="Library.fs" />
+    <Compile Include="models/User/User.fs" />
+    <Compile Include="models/User/Events.fs" />
+    <Compile Include="models/User/Commands.fs" />
+    <Compile Include="RecordStore.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sharpino" Version="4.1.3" />
+  </ItemGroup>
+
+</Project>
