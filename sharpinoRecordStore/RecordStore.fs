@@ -3,15 +3,21 @@ namespace sharpinoRecordStore
 open System
 open Sharpino.Core
 open Sharpino
-open Microsoft.Extensions.Configuration
+open Sharpino.Storage
 open Sharpino.CommandHandler
+
+open Microsoft.Extensions.Configuration
+open Microsoft.Extensions.Logging
+
 open FsToolkit.ErrorHandling
+open FSharpPlus
+open FsToolkit.ErrorHandling
+open FsToolkit.ErrorHandling.Operator.Result
+
+open sharpinoRecordStore.models
+open sharpinoRecordStore.models.UserEvents
 
 module RecordStore =
-    open Sharpino.Storage
-    open sharpinoRecordStore.models
-    open Microsoft.Extensions.Logging
-    open sharpinoRecordStore.models.UserEvents
 
     let doNothingBroker: IEventBroker<_> =
         { 
@@ -40,6 +46,14 @@ module RecordStore =
                         user
                         |> runInit<User, UserEvents, string> eventStore eventBroker
                 }
+        
+        member this.AddUserAsync (user: User) =
+            taskResult
+                {
+                    return!
+                        user
+                        |> runInit<User, UserEvents, string> eventStore eventBroker
+                }         
         
         member this.GetUser (id: Guid) =
             usersViewer id |> Result.map snd

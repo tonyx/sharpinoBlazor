@@ -86,7 +86,7 @@
         Logger.LogInformation("User created a new account with password.");
 
         var recordStoreUser = sharpinoRecordStore.models.User.Create(Guid.Parse(user.Id), user.UserName, user.Email);
-        var added = RecordStore.AddUser(recordStoreUser);
+        var added = await RecordStore.AddUserAsync(recordStoreUser);
         if (added.IsError)
         {
             throw new Exception("Unable to add user to record store");

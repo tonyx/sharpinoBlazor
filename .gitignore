@@ -8,8 +8,8 @@
 /node_modules
 /dist
 /out
-/obj
-/bin
+**/obj/
+**/bin
 *.log
 *.tmp
 _ReSharper*/
