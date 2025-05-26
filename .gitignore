@@ -17,3 +17,4 @@ _ReSharper*/
 *.DS_Store
 appsettings.json
 .env
+*.env
