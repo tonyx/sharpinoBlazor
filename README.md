@@ -1,5 +1,14 @@
 # sharpinoBlazor
 
+The classic blazor app based on a template that includes user registration is modified so that
+a shadow copy of the Asp.net identity users is stored in the sharpino_recordstore database
+Not so pretty but it works.
+
+Key points: 
+1. C# Blazor user interface with Asp.net identity and event sourced users
+2. F# Sharpino based event sourcing
+3. Async call from any .razor page to the RecordStore.fs app via dependency injection (singleton)
+
 when a user is added then the equivalent user is created also as a sharpino event sourced object.
 
 Note: 
@@ -29,7 +38,7 @@ DATABASE_URL="postgres://postgresuser:postgrespassword@127.0.0.1:5432/sharpino_r
 
 ```
 
-#Various info:
+## Various info:
 
 The RecordStore.fs app is resolved as a singleton by using the dependency injection of .net by adding the following line in Program.cs
 ```csharp
