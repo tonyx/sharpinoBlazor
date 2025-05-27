@@ -6,7 +6,7 @@ a shadow copy of the Asp.net identity users is stored in the sharpino_recordstor
 Key points: 
 1. C# Blazor user interface with Asp.net identity and event sourced users
 2. F# Sharpino based event sourcing
-3. Async call from any .razor page to the RecordStore.fs app via dependency injection (singleton)
+3. any .razor page will access the unique RecordStore instance via dependency injection
 
 Note: 
 you need this appsettings.json in the main directory
