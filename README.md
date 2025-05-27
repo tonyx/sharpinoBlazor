@@ -38,6 +38,12 @@ DATABASE_URL="postgres://postgresuser:postgrespassword@127.0.0.1:5432/sharpino_r
 
 ```
 
+finally: providing thet you have your postgresql database up and running, you can populate it with the following command
+```
+dbmate up 
+```
+from the sharpinoRecordStore subdirectory
+
 ## Various info:
 
 The RecordStore.fs app is resolved as a singleton by using the dependency injection of .net by adding the following line in Program.cs
