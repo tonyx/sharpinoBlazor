@@ -1,4 +1,5 @@
 namespace sharpinoRecordStore.models
+open sharpinoRecordStore.Definitions
 open Sharpino.Commons
 open Sharpino.Core
 open System
@@ -31,7 +32,7 @@ type User = {
 
     static member StorageName = "_user"
     static member Version = "_01"
-    static member SnapshotsInterval = 1000
+    static member SnapshotsInterval = 100
     static member Deserialize (x: string) =
         jsonPSerializer.Deserialize<User> x
 

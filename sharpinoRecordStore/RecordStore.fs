@@ -16,6 +16,8 @@ open FsToolkit.ErrorHandling.Operator.Result
 
 open sharpinoRecordStore.models
 open sharpinoRecordStore.models.UserEvents
+open sharpinoRecordStore.models
+open sharpinoRecordStore.models.ItemEvents
 
 module RecordStore =
 
@@ -31,13 +33,15 @@ module RecordStore =
             logger: ILogger<RecordStore>,
             eventStore: IEventStore<string>,
             eventBroker: IEventBroker<string>,
-            usersViewer: AggregateViewer<User>
+            usersViewer: AggregateViewer<User>,
+            itemsViewer: AggregateViewer<Item>
         ) =
 
         new (configuration: IConfiguration, logger: ILogger<RecordStore>) as this =
             let pgEventStore = PgStorage.PgEventStore (configuration.GetValue<string>("sharpinoDb:Connection"))
-            let usersViewer = getAggregateStorageFreshStateViewer<User, UserEvents,string> pgEventStore 
-            RecordStore (configuration, logger, pgEventStore, doNothingBroker, usersViewer)
+            let usersViewer = getAggregateStorageFreshStateViewer<User, UserEvents,string> pgEventStore
+            let itemsViewer = getAggregateStorageFreshStateViewer<Item, ItemEvents,string> pgEventStore 
+            RecordStore (configuration, logger, pgEventStore, doNothingBroker, usersViewer, itemsViewer)
 
         member this.AddUser (user: User) =
             result
@@ -53,7 +57,53 @@ module RecordStore =
                     return!
                         user
                         |> runInit<User, UserEvents, string> eventStore eventBroker
-                }         
+                }
         
-        member this.GetUser (id: Guid) =
+        member this.AddItemAsync (item: Item) =
+            taskResult
+                {
+                    return!
+                        item
+                        |> runInit<Item, ItemEvents, string> eventStore eventBroker
+                }
+        
+        member this.UserGivesItemToAnotherUser (giverId: Guid, itemId: Guid, receiverId: Guid) =
+            result
+                {
+                    let! giver = this.GetUser giverId
+                    let! receiver = this.GetUser receiverId
+                    let! item = this.GetItem itemId
+                    do!
+                        item.OwnerId = giver.Id
+                        |> Result.ofBool "not owner"
+                    return!    
+                        (ItemCommand.GiveTo receiverId)
+                        |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker
+                }
+                
+        member this.UserGivesItemToAnotherUserAsync (giverId: Guid, itemId: Guid, receiverId: Guid) =
+            task
+                {
+                    return this.UserGivesItemToAnotherUser (giverId, itemId, receiverId)
+                }
+        
+        member this.GetAllItemsOfUser (userId: Guid) =
+            result
+                {
+                    let! items =
+                        StateView.getAllAggregateStates<Item, ItemEvents, string> eventStore
+                    let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId)
+                    return result
+                }
+        member this.GetAllItemsOfUserAsync (userId: Guid) =
+            task
+                {
+                    return this.GetAllItemsOfUser userId 
+                }
+       
+        member this.GetUser (id: Guid): Result<User, string> =
             usersViewer id |> Result.map snd
+            
+        member this.GetItem (id: Guid): Result<Item, string> =
+            itemsViewer id |> Result.map snd
+        

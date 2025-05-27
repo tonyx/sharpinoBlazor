@@ -7,10 +7,13 @@
 
   <ItemGroup>
     <None Include="sharpinoSettings.json" CopyToOutputDirectory="PreserveNewest" />
-    <Compile Include="Library.fs" />
+    <Compile Include="Definitions.fs" />
     <Compile Include="models/User/User.fs" />
     <Compile Include="models/User/Events.fs" />
     <Compile Include="models/User/Commands.fs" />
+    <Compile Include="models/Item/Item.fs" />
+    <Compile Include="models/Item/Events.fs" />
+    <Compile Include="models/Item/Commands.fs" />
     <Compile Include="RecordStore.fs" />
   </ItemGroup>
 
