@@ -92,9 +92,25 @@ module RecordStore =
                 {
                     let! items =
                         StateView.getAllAggregateStates<Item, ItemEvents, string> eventStore
-                    let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId)
+                    let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId && not i.Deleted)
                     return result
                 }
+       
+        member this.DeleteItemByUser (itemId: Guid, userId: Guid) =
+            result
+                {
+                    let! item = this.GetItem itemId
+                    let! user = this.GetUser userId
+                    return
+                        ItemCommand.DeleteBy userId
+                        |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker 
+                }
+        member this.DeleteItemByUserAsync (itemId: Guid, userId: Guid) =
+            task
+                {
+                    return this.DeleteItemByUser (itemId, userId)
+                }        
+                
         member this.GetAllItemsOfUserAsync (userId: Guid) =
             task
                 {

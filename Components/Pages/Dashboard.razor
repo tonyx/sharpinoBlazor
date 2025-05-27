@@ -32,6 +32,14 @@
             <QuickGrid Items="items.AsQueryable()" TGridItem="Item" class="table table-bordered table-striped" Pagination="Pagination">
                 <PropertyColumn Property="f => f.Name" Title="Name" Sortable="true"/>
                 <PropertyColumn Property="f => f.ItemType" Title="Type" Sortable="true"/>
+                <TemplateColumn Title="Delete">
+                    <TemplateContext>
+                        @{
+                            var item = context as Item;
+                        }
+                        <button class="btn btn-danger btn-sm" @onclick="() => DeleteItem(item.Id)">Delete</button>
+                    </TemplateContext>
+                </TemplateColumn>
             </QuickGrid>
             <Paginator State="Pagination"/>
             
@@ -106,6 +114,16 @@
 
         [Required(ErrorMessage = "Type field cannot be empty")]
         public required string Type { get; set; }
+    }
+    
+    private async Task DeleteItem(Guid itemid)
+    {
+        var tryDelete = await RecordStore.DeleteItemByUserAsync(itemid, userId);
+        if (tryDelete.IsError)
+        {
+            throw new Exception(tryDelete.ErrorValue);
+        }
+        await LoadItems(); 
     }
 
     private async Task AddItem()
