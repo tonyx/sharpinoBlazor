@@ -1,7 +1,4 @@
 namespace sharpinoRecordStore.models
-open Sharpino
-open FsToolkit.ErrorHandling
-open sharpinoRecordStore.Definitions
 open Sharpino.Core
 open Sharpino.Commons
 

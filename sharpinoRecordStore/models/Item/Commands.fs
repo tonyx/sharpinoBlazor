@@ -1,6 +1,5 @@
 
 namespace sharpinoRecordStore.models
-open Sharpino
 open FsToolkit.ErrorHandling
 open Sharpino.Core
 open sharpinoRecordStore.models.ItemEvents

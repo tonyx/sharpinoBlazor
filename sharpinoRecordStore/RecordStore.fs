@@ -37,7 +37,7 @@ module RecordStore =
             itemsViewer: AggregateViewer<Item>
         ) =
 
-        new (configuration: IConfiguration, logger: ILogger<RecordStore>) as this =
+        new (configuration: IConfiguration, logger: ILogger<RecordStore>) =
             let pgEventStore = PgStorage.PgEventStore (configuration.GetValue<string>("sharpinoDb:Connection"))
             let usersViewer = getAggregateStorageFreshStateViewer<User, UserEvents,string> pgEventStore
             let itemsViewer = getAggregateStorageFreshStateViewer<Item, ItemEvents,string> pgEventStore 

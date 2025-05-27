@@ -1,15 +1,12 @@
 # sharpinoBlazor
 
 The classic blazor app based on a template that includes user registration is modified so that
-a shadow copy of the Asp.net identity users is stored in the sharpino_recordstore database
-Not so pretty but it works.
+a shadow copy of the Asp.net identity users is stored in the sharpino_recordstore database.
 
 Key points: 
 1. C# Blazor user interface with Asp.net identity and event sourced users
 2. F# Sharpino based event sourcing
 3. Async call from any .razor page to the RecordStore.fs app via dependency injection (singleton)
-
-when a user is added then the equivalent user is created also as a sharpino event sourced object.
 
 Note: 
 you need this appsettings.json in the main directory

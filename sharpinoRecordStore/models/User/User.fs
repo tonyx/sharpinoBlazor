@@ -1,5 +1,4 @@
 namespace sharpinoRecordStore.models
-open sharpinoRecordStore.Definitions
 open Sharpino.Commons
 open Sharpino.Core
 open System
@@ -27,6 +26,7 @@ type User = {
         else
             { this with Email = newEmail } |> Ok
 
+   /// =====
     member this.Serialize =
         jsonPSerializer.Serialize this
 
