@@ -1,4 +1,4 @@
-namespace sharpinoRecordStore.models
+namespace SharpinoRecordStore.models
 open Sharpino.Commons
 open Sharpino.Core
 open System

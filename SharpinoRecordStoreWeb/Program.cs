@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using sharpinoBlazor.Components;
 using sharpinoBlazor.Components.Account;
 using sharpinoBlazor.Data;
-using sharpinoRecordStore;
+using SharpinoRecordStore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

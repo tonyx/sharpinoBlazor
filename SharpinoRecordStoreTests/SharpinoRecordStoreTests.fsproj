@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <GenerateProgramFile>false</GenerateProgramFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Commons.fs" />
+    <Compile Include="Sample.fs" />
+    <Compile Include="Main.fs" />
+    <Content Include=".env" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../sharpinoRecordStore/sharpinoRecordStore.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Expecto" Version="10.2.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
+    <PackageReference Include="YoloDev.Expecto.TestSdk" Version="0.15.3" />
+    <PackageReference Update="FSharp.Core" Version="9.*" />
+    
+  </ItemGroup>
+</Project>

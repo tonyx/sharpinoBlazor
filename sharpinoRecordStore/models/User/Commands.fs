@@ -1,7 +1,7 @@
-namespace sharpinoRecordStore.models
+namespace SharpinoRecordStore.models
 open FsToolkit.ErrorHandling
 open Sharpino.Core
-open sharpinoRecordStore.models.UserEvents
+open SharpinoRecordStore.models.UserEvents
 
 module UserCommands =
 

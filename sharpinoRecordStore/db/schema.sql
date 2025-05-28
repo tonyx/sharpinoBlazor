@@ -428,6 +428,5 @@ ALTER TABLE ONLY public.snapshots_01_user
 
 INSERT INTO public.schema_migrations (version) VALUES
     ('20250526203513'),
-    ('20250526203827'),
     ('20250527112000'),
     ('20250529203827');

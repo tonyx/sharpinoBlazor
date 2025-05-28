@@ -1,5 +1,5 @@
 
-namespace rec sharpinoRecordStore.models
+namespace rec SharpinoRecordStore.models
 open Sharpino.Commons
 open FsToolkit.ErrorHandling
 open Sharpino.Core

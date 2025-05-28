@@ -7,7 +7,8 @@
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
 @using sharpinoBlazor.Data
-@using sharpinoRecordStore
+@using SharpinoRecordStore
+@using SharpinoRecordStore.models
 
 @inject UserManager<ApplicationUser> UserManager
 @inject IUserStore<ApplicationUser> UserStore
@@ -85,7 +86,7 @@
 
         Logger.LogInformation("User created a new account with password.");
 
-        var recordStoreUser = sharpinoRecordStore.models.User.Create(Guid.Parse(user.Id), user.UserName, user.Email);
+        var recordStoreUser = User.Create(Guid.Parse(user.Id), user.UserName, user.Email);
         var added = await RecordStore.AddUserAsync(recordStoreUser);
         if (added.IsError)
         {

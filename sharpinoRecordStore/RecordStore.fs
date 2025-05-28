@@ -1,4 +1,4 @@
-namespace sharpinoRecordStore
+namespace SharpinoRecordStore
 
 open System
 open Sharpino.Core
@@ -14,10 +14,10 @@ open FSharpPlus
 open FsToolkit.ErrorHandling
 open FsToolkit.ErrorHandling.Operator.Result
 
-open sharpinoRecordStore.models
-open sharpinoRecordStore.models.UserEvents
-open sharpinoRecordStore.models
-open sharpinoRecordStore.models.ItemEvents
+open SharpinoRecordStore.models
+open SharpinoRecordStore.models.UserEvents
+open SharpinoRecordStore.models
+open SharpinoRecordStore.models.ItemEvents
 
 module RecordStore =
 
@@ -29,7 +29,6 @@ module RecordStore =
 
     type RecordStore
         (
-            configuration: IConfiguration,
             logger: ILogger<RecordStore>,
             eventStore: IEventStore<string>,
             eventBroker: IEventBroker<string>,
@@ -41,7 +40,7 @@ module RecordStore =
             let pgEventStore = PgStorage.PgEventStore (configuration.GetValue<string>("sharpinoDb:Connection"))
             let usersViewer = getAggregateStorageFreshStateViewer<User, UserEvents,string> pgEventStore
             let itemsViewer = getAggregateStorageFreshStateViewer<Item, ItemEvents,string> pgEventStore 
-            RecordStore (configuration, logger, pgEventStore, doNothingBroker, usersViewer, itemsViewer)
+            RecordStore (logger, pgEventStore, doNothingBroker, usersViewer, itemsViewer)
         
         member this.AddUserAsync (user: User) =
             logger.LogInformation("Adding user")
@@ -56,6 +55,7 @@ module RecordStore =
             logger.LogInformation("Adding item")
             taskResult
                 {
+                    let! user = this.GetUser item.OwnerId 
                     return!
                         item
                         |> runInit<Item, ItemEvents, string> eventStore eventBroker

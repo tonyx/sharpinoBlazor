@@ -1,8 +1,8 @@
 
-namespace sharpinoRecordStore.models
+namespace SharpinoRecordStore.models
 open FsToolkit.ErrorHandling
 open Sharpino.Core
-open sharpinoRecordStore.models.ItemEvents
+open SharpinoRecordStore.models.ItemEvents
 open System
 
 type ItemCommand =
