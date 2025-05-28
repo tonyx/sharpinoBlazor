@@ -41,7 +41,7 @@ finally: providing thet you have your postgresql database up and running, you ca
 dbmate up 
 ```
 to setup the test database:
-```angular2html
+```bash
 dbmate -e DATABASE_TEST up
 
 ```

@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sharpinoRecordStore", "shar
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SharpinoRecordStoreTests", "SharpinoRecordStoreTests\SharpinoRecordStoreTests.fsproj", "{D6EFA136-15DD-4C8D-A561-6B9D8B201C67}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SharpinoRecordStoreWebTests", "SharpinoRecordStoreWebTests\SharpinoRecordStoreWebTests.fsproj", "{1C525863-7EB1-4714-B552-604074E3D173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{D6EFA136-15DD-4C8D-A561-6B9D8B201C67}.Release|x64.Build.0 = Release|Any CPU
 		{D6EFA136-15DD-4C8D-A561-6B9D8B201C67}.Release|x86.ActiveCfg = Release|Any CPU
 		{D6EFA136-15DD-4C8D-A561-6B9D8B201C67}.Release|x86.Build.0 = Release|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Debug|x64.Build.0 = Debug|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Debug|x86.Build.0 = Debug|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Release|x64.ActiveCfg = Release|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Release|x64.Build.0 = Release|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Release|x86.ActiveCfg = Release|Any CPU
+		{1C525863-7EB1-4714-B552-604074E3D173}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

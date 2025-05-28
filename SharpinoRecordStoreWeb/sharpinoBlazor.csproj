@@ -76,57 +76,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\AccessDenied.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ConfirmEmail.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ConfirmEmailChange.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ExternalLogin.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ForgotPassword.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ForgotPasswordConfirmation.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\InvalidPasswordReset.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\InvalidUser.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Lockout.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Login.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\LoginWith2fa.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\LoginWithRecoveryCode.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\ChangePassword.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\DeletePersonalData.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\Disable2fa.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\Email.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\EnableAuthenticator.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\ExternalLogins.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\GenerateRecoveryCodes.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\Index.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\PersonalData.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\ResetAuthenticator.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\SetPassword.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\TwoFactorAuthentication.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\_Imports.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Register.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\RegisterConfirmation.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ResendEmailConfirmation.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ResetPassword.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ResetPasswordConfirmation.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\_Imports.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ExternalLoginPicker.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ManageLayout.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ManageNavMenu.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\RedirectToLogin.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ShowRecoveryCodes.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\StatusMessage.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\App.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Layout\MainLayout.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Layout\NavMenu.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Auth.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Counter.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Dashboard.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Error.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Home.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Weather.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Routes.razor" />
-    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\_Imports.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Properties\launchSettings.json" />
     <None Include="SharpinoRecordStoreWeb\Properties\launchSettings.json" />
   </ItemGroup>
