@@ -48,13 +48,19 @@ The RecordStore.fs app is resolved as a singleton by using the dependency inject
 builder.Services.AddSingleton<RecordStore.RecordStore>();
 ```
 
-the ef migration files are adapted to the database that is used (postgres)
+the ef (entity framework) migration files are adapted to the database that is used (postgres)
 
 The legacy Asp.net identity users are stored in the sharpino_sample_auth database
 The event sourced users are stored in the sharpino_recordstore database
 
 So when a user is added then the equivalent user is created also as a sharpino event sourced object.
 The application will just borrow the users (and, most important, their Id) from the Asp.net identity system. 
-Any other event sourced entity of the domain will be likely modelled as the object, the events and the commands.
+Any other event sourced entity of the domain may follow the structure of the models directory and an entry in
+the business logic layer (RecordStore.fs).
+Some computations expressions use the let! expressionn to bind to objects that they don't use: 
+it is a way to verify that the objects exist.
+
+
+
 
 
