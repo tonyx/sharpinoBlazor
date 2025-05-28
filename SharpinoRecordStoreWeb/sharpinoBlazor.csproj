@@ -1,0 +1,134 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-sharpinoBlazor-a4da1470-394d-43e5-a5da-c3dae3a844ca</UserSecretsId>
+  </PropertyGroup>
+
+  <!-- <ItemGroup>
+    <None Update="Data\app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup> -->
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="9.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../sharpinoRecordStore/sharpinoRecordStore.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\AccessDenied.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ConfirmEmail.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ConfirmEmailChange.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ExternalLogin.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ForgotPassword.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ForgotPasswordConfirmation.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\InvalidPasswordReset.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\InvalidUser.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Lockout.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Login.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\LoginWith2fa.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\LoginWithRecoveryCode.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\ChangePassword.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\DeletePersonalData.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\Disable2fa.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\Email.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\EnableAuthenticator.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\ExternalLogins.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\GenerateRecoveryCodes.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\Index.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\PersonalData.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\ResetAuthenticator.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\SetPassword.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\TwoFactorAuthentication.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Manage\_Imports.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\Register.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\RegisterConfirmation.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ResendEmailConfirmation.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ResetPassword.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\ResetPasswordConfirmation.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Pages\_Imports.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Shared\ExternalLoginPicker.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Shared\ManageLayout.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Shared\ManageNavMenu.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Shared\RedirectToLogin.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Shared\ShowRecoveryCodes.razor" />
+    <_ContentIncludedByDefault Remove="Components\Account\Shared\StatusMessage.razor" />
+    <_ContentIncludedByDefault Remove="Components\App.razor" />
+    <_ContentIncludedByDefault Remove="Components\Layout\MainLayout.razor" />
+    <_ContentIncludedByDefault Remove="Components\Layout\NavMenu.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Auth.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Counter.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Dashboard.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Error.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Home.razor" />
+    <_ContentIncludedByDefault Remove="Components\Pages\Weather.razor" />
+    <_ContentIncludedByDefault Remove="Components\Routes.razor" />
+    <_ContentIncludedByDefault Remove="Components\_Imports.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\AccessDenied.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ConfirmEmail.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ConfirmEmailChange.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ExternalLogin.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ForgotPassword.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ForgotPasswordConfirmation.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\InvalidPasswordReset.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\InvalidUser.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Lockout.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Login.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\LoginWith2fa.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\LoginWithRecoveryCode.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\ChangePassword.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\DeletePersonalData.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\Disable2fa.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\Email.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\EnableAuthenticator.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\ExternalLogins.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\GenerateRecoveryCodes.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\Index.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\PersonalData.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\ResetAuthenticator.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\SetPassword.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\TwoFactorAuthentication.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Manage\_Imports.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\Register.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\RegisterConfirmation.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ResendEmailConfirmation.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ResetPassword.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\ResetPasswordConfirmation.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Pages\_Imports.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ExternalLoginPicker.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ManageLayout.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ManageNavMenu.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\RedirectToLogin.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\ShowRecoveryCodes.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Account\Shared\StatusMessage.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\App.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Layout\MainLayout.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Layout\NavMenu.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Auth.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Counter.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Dashboard.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Error.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Home.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Pages\Weather.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\Routes.razor" />
+    <AdditionalFiles Include="SharpinoRecordStoreWeb\Components\_Imports.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\launchSettings.json" />
+    <None Include="SharpinoRecordStoreWeb\Properties\launchSettings.json" />
+  </ItemGroup>
+
+</Project>
