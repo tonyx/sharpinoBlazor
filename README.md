@@ -32,6 +32,7 @@ you need this appsettings.json in the main directory
 you need also the following .env file in the sharpinoRecordStore subdirectory:
 ```
 DATABASE_URL="postgres://postgresuser:postgrespassword@127.0.0.1:5432/sharpino_recordstore?sslmode=disable"
+DATABASE_TEST="postgres://postgresuser:postgrespassword@127.0.0.1:5432/sharpino_recordstore_test?sslmode=disable"
 
 ```
 
@@ -39,6 +40,29 @@ finally: providing thet you have your postgresql database up and running, you ca
 ```
 dbmate up 
 ```
+to setup the test database:
+```angular2html
+dbmate -e DATABASE_TEST up
+
+```
+
+in the SharpinoRecordStoreTest directory you need a .env file with the password of the 'safe' user (or any other user with access to the database, specified in the Commons.fs file)
+```
+password=userpassword
+```
+you may avoid the database setup by using only the in-memory event store
+in that case you can comment out the pgEventStore instance based entry in the instances list:
+
+```fsharp
+    let instances =
+        [
+        //     (fun () -> setUp pgEventStore), RecordStore (logger, pgEventStore, doNothingBroker, pgUsersViewer, pgItemViewer)
+            (fun () -> setUp memEventStore), RecordStore (logger, memEventStore, doNothingBroker, memUsersViewer, memitemViewer)
+        ]
+
+```
+
+
 from the sharpinoRecordStore subdirectory
 
 ## Various info:
