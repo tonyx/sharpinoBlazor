@@ -42,16 +42,9 @@ module RecordStore =
             let usersViewer = getAggregateStorageFreshStateViewer<User, UserEvents,string> pgEventStore
             let itemsViewer = getAggregateStorageFreshStateViewer<Item, ItemEvents,string> pgEventStore 
             RecordStore (configuration, logger, pgEventStore, doNothingBroker, usersViewer, itemsViewer)
-
-        member this.AddUser (user: User) =
-            result
-                {
-                    return!
-                        user
-                        |> runInit<User, UserEvents, string> eventStore eventBroker
-                }
         
         member this.AddUserAsync (user: User) =
+            logger.LogInformation("Adding user")
             taskResult
                 {
                     return!
@@ -60,15 +53,16 @@ module RecordStore =
                 }
         
         member this.AddItemAsync (item: Item) =
+            logger.LogInformation("Adding item")
             taskResult
                 {
                     return!
                         item
                         |> runInit<Item, ItemEvents, string> eventStore eventBroker
                 }
-        
-        member this.UserGivesItemToAnotherUser (giverId: Guid, itemId: Guid, receiverId: Guid) =
-            result
+        member this.UserGivesItemToAnotherUserAsync (giverId: Guid, itemId: Guid, receiverId: Guid) =
+            logger.LogInformation("User gives item to another user")
+            taskResult
                 {
                     let! giver = this.GetUser giverId
                     let! receiver = this.GetUser receiverId
@@ -80,15 +74,10 @@ module RecordStore =
                         (ItemCommand.GiveTo receiverId)
                         |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker
                 }
-                
-        member this.UserGivesItemToAnotherUserAsync (giverId: Guid, itemId: Guid, receiverId: Guid) =
-            task
-                {
-                    return this.UserGivesItemToAnotherUser (giverId, itemId, receiverId)
-                }
         
-        member this.GetAllItemsOfUser (userId: Guid) =
-            result
+        member this.GetAllItemsOfUserAsync (userId: Guid) =
+            logger.LogInformation("Getting all items of user")
+            taskResult
                 {
                     let! items =
                         StateView.getAllAggregateStates<Item, ItemEvents, string> eventStore
@@ -96,8 +85,9 @@ module RecordStore =
                     return result
                 }
        
-        member this.DeleteItemByUser (itemId: Guid, userId: Guid) =
-            result
+        member this.DeleteItemByUserAsync (itemId: Guid, userId: Guid) =
+            logger.LogInformation("Deleting item by user")
+            taskResult
                 {
                     let! item = this.GetItem itemId
                     let! user = this.GetUser userId
@@ -105,18 +95,7 @@ module RecordStore =
                         ItemCommand.DeleteBy userId
                         |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker 
                 }
-        member this.DeleteItemByUserAsync (itemId: Guid, userId: Guid) =
-            task
-                {
-                    return this.DeleteItemByUser (itemId, userId)
-                }        
                 
-        member this.GetAllItemsOfUserAsync (userId: Guid) =
-            task
-                {
-                    return this.GetAllItemsOfUser userId 
-                }
-       
         member this.GetUser (id: Guid): Result<User, string> =
             usersViewer id |> Result.map snd
             
