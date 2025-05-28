@@ -84,6 +84,14 @@ the business logic layer (RecordStore.fs).
 Some computations expressions use the let! expressionn to bind to objects that they don't use: 
 it is a way to verify that the objects exist.
 
+## In progress:
+Additional tests based on hitting the web app via the playwright library
+a "test" profile should be used to run the webapp to be tested by the playwright tests (dotnet run -lp=test)
+in that way serparate databases can be used for testing.
+i.e. copes of the databases sharpino_sample_auth and sharpino_recordstore like
+sharpino_sample_auth_test and sharpino_recordstore_test.
+
+
 
 
 
