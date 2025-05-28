@@ -91,7 +91,7 @@ module RecordStore =
                 {
                     let! item = this.GetItem itemId
                     let! user = this.GetUser userId
-                    return
+                    return!
                         ItemCommand.DeleteBy userId
                         |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker 
                 }
