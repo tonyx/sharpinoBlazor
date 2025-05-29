@@ -14,12 +14,12 @@ builder.Services.AddRazorComponents()
 
 
 
-// not anynore:
+// not anymore:
 // builder.Configuration.AddJsonFile("appsettings.json", optional: false)
 //     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true);
 
 // I decide to use only one configuration changing the connection string on them. Putting Test value
-// to ASPNETCORE_ENVIRONMENT in a specific lanuchprofile may have some strange effects 
+// to ASPNETCORE_ENVIRONMENT in a specific launchprofile may have some strange effects 
 
 builder.Configuration.AddJsonFile("appsettings.json", optional: false);
 
@@ -56,12 +56,10 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Test") // hack to use test profile lanuch
 {
-    Console.WriteLine("Development");
     app.UseMigrationsEndPoint();
 }
 else
 {
-    Console.WriteLine("Not Development");
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
