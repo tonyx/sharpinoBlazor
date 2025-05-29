@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Utils.fs" />
     <Compile Include="WebTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
     <PackageReference Include="Expecto" Version="10.2.3" />
     <PackageReference Include="Expecto" Version="10.2.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
@@ -22,6 +24,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\sharpinoRecordStore\sharpinoRecordStore.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".env" />
   </ItemGroup>
 
 </Project>

@@ -55,7 +55,7 @@ module RecordStore =
             logger.LogInformation("Adding item")
             taskResult
                 {
-                    let! user = this.GetUser item.OwnerId 
+                    let! _  = this.GetUser item.OwnerId 
                     return!
                         item
                         |> runInit<Item, ItemEvents, string> eventStore eventBroker

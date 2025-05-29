@@ -18,6 +18,7 @@ open Npgsql
 open FSharpPlus
 
 open Expecto
+open SharpinoRecordStoreWebTests.Utils
 
 // todo: recreate the webapp that will be hit by those test as
 // something looks not good atm
@@ -32,9 +33,7 @@ let tests =
             let browser = playwright.Chromium.LaunchAsync().Result
             let page = browser.NewPageAsync().Result
             let! _  =
-                page.GotoAsync("http://localhost:5150") |> Async.AwaitTask
-                // page.GotoAsync("http://localhost:5186") |> Async.AwaitTask
-                // http://localhost:5150
+                page.GotoAsync("http://localhost:5133") |> Async.AwaitTask
             let title = page.TitleAsync().Result
             printf "title: %s" title
             
@@ -43,16 +42,17 @@ let tests =
             browser.CloseAsync().Wait()
         }
         
-        testCaseAsync "register new user" <| async {
+        ftestCaseAsync "register new user" <| async {
+            setUp pgEventStore
             let! playwright = Playwright.CreateAsync() |> Async.AwaitTask
             let browser = playwright.Chromium.LaunchAsync().Result
             let page = browser.NewPageAsync().Result
             let! _  =
-                page.GotoAsync("http://localhost:5186/Account/Register") |> Async.AwaitTask
+                page.GotoAsync("http://localhost:5133/Account/Register") |> Async.AwaitTask
             let title = page.TitleAsync().Result
             Expect.equal title "Register" "should be true"
             let! _ =
-                page.Locator("#Input\\.Email").FillAsync("fake@example.com") |> Async.AwaitTask
+                page.Locator("#Input\\.Email").FillAsync("fake2@example.com") |> Async.AwaitTask
             let! _ =
                 page.Locator("#Input\\.Password").FillAsync("danwe4-jafnyj-sytNoj") |> Async.AwaitTask
             let! _ =
