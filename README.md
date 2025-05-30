@@ -1,4 +1,4 @@
-# sharpinoBlazor
+# Mixing Sharpino F# backend and Blazor with Asp.net identity C# for the front end
 
 The classic blazor app based on a template that includes user registration is modified so that
 a shadow copy of the Asp.net identity users is stored in the sharpino_recordstore database.
