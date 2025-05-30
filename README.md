@@ -4,9 +4,9 @@ The classic blazor app based on a template that includes user registration is mo
 a shadow copy of the Asp.net identity users is stored in the sharpino_recordstore database.
 
 Key points: 
-1. C# Blazor user interface with Asp.net identity and event sourced users
-2. F# Sharpino based event sourcing
-3. any .razor page will access the unique RecordStore instance via dependency injection
+1. C# Blazor user interface with Asp.net identity authentication
+2. F# Sharpino based event sourcing "business logic"
+3. any .razor page will access the unique RecordStore (F#) instance via dependency injection
 
 Note: 
 you need this appsettings.json in the main directory
