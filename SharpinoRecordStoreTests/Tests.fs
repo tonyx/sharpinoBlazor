@@ -64,7 +64,6 @@ let tests =
           
             Expect.isOk userAdded "should be ok" 
              
-            let itemId = Guid.NewGuid()
             let item = Item.Create userId "name" ItemType.Book
             let itemAdded =
                 recordStore.AddItemAsync item
