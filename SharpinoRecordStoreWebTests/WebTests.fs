@@ -61,7 +61,6 @@ let tests =
                 page.Locator("button[type='submit']").ClickAsync() |> Async.AwaitTask
             
             browser.CloseAsync().Wait()
-            Expect.isTrue true "true"
         }
     ]
     |> testSequenced

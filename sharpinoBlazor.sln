@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sharpinoBlazor", "SharpinoReordStoreWeb\sharpinoBlazor.csproj", "{3BF2505D-3E7F-EA66-9DD3-211406D05C1C}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sharpinoRecordStore", "sharpinoRecordStore\sharpinoRecordStore.fsproj", "{D4892CE6-22C1-4CF9-A75C-E11F27691ED3}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "SharpinoRecordStoreTests", "SharpinoRecordStoreTests\SharpinoRecordStoreTests.fsproj", "{D6EFA136-15DD-4C8D-A561-6B9D8B201C67}"

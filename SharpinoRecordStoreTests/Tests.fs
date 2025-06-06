@@ -1,8 +1,5 @@
 module Tests
 open System
-open Microsoft.Extensions.Configuration
-open Microsoft.Extensions.DependencyInjection
-open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open Sharpino.CommandHandler
 open Sharpino.Storage
@@ -10,7 +7,6 @@ open Sharpino.TestUtils
 open SharpinoRecordStore.RecordStore
 open SharpinoRecordStore.models
 open SharpinoRecordStoreTests.Commons
-open Microsoft.Extensions.Logging
 open Microsoft.Extensions.Logging.Abstractions
 
 open Expecto
@@ -53,7 +49,7 @@ let tests =
                 
             Expect.equal userRetrieved user "should be equal"
             
-        multipleTestCase "add user, add and retrieve the an item by that user" instances <| fun (setUp,  recordStore) ->
+        multipleTestCase "add user, add and retrieve an item by that user" instances <| fun (setUp,  recordStore) ->
             setUp()
             let userId = Guid.NewGuid()
             let user = User.Create userId "name" "email@email.com"
