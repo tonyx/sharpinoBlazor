@@ -7,6 +7,7 @@ open System
 module ItemEvents =
     type ItemEvents =
         | GivenTo of Guid
+        | GivenTo2 of Guid * Guid
         | DeletedBy of Guid
 
         interface Event<Item> with
@@ -14,6 +15,8 @@ module ItemEvents =
                 match this with
                 | GivenTo other -> 
                     item.GivesTo other
+                | GivenTo2 (owner, other) ->
+                    item.GivesTo2 (owner, other)
                 | DeletedBy owner ->
                     item.DeleteBy owner
 

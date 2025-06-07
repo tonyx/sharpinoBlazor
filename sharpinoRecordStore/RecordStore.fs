@@ -67,11 +67,8 @@ module RecordStore =
                     let! giver = this.GetUser giverId
                     let! receiver = this.GetUser receiverId
                     let! item = this.GetItem itemId
-                    do!
-                        item.OwnerId = giver.Id
-                        |> Result.ofBool "not owner"
                     return!    
-                        (ItemCommand.GiveTo receiverId)
+                        ItemCommand.GiveTo2 (giverId, receiverId)
                         |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker
                 }
         

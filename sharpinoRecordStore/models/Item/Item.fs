@@ -37,10 +37,22 @@ type Item = {
     with    
         static member Create ownerId name itemType =
             { Id = Guid.NewGuid(); OwnerId = ownerId; Name = name;  ItemType = itemType; Deleted = false }
-
+        
+        [<Obsolete("This method is deprecated, use GivesTo2 instead.")>]
         member this.GivesTo other =
             { this with OwnerId = other } |> Ok
         
+        member this.GivesTo2 (owner: Guid, other: Guid) =
+            result
+                {
+                        do!
+                            this.OwnerId = owner
+                            |> Result.ofBool "not owner"
+                        return
+                            {
+                                this with OwnerId = other
+                            }
+                }
         member this.DeleteBy ownerId = 
             result
                 {

@@ -7,6 +7,7 @@ open System
 
 type ItemCommand =
     | GiveTo of Guid
+    | GiveTo2 of Guid * Guid
     | DeleteBy of Guid
     
     interface AggregateCommand<Item, ItemEvents> with
@@ -15,6 +16,9 @@ type ItemCommand =
             | GiveTo other ->
                 item.GivesTo other
                 |> Result.map (fun i -> (i, [GivenTo other])) 
+            | GiveTo2 (owner, other) ->
+                item.GivesTo2 (owner, other) 
+                |> Result.map (fun i -> (i, [GivenTo2 (owner, other)])) 
             | DeleteBy owner ->
                 item.DeleteBy owner
                 |> Result.map (fun i -> (i, [DeletedBy owner]))
