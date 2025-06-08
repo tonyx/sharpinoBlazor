@@ -59,6 +59,8 @@ let tests =
                 page.Locator("#Input\\.ConfirmPassword").FillAsync("danwe4-jafnyj-sytNoj") |> Async.AwaitTask
             let! _ =
                 page.Locator("button[type='submit']").ClickAsync() |> Async.AwaitTask
+           
+            // todo verify the successful login
             
             browser.CloseAsync().Wait()
         }
