@@ -7,9 +7,9 @@
     <UserSecretsId>aspnet-sharpinoRecordStoreWeb2-ad889840-c45b-40f6-97e4-222274a834db</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Update="Data\app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
-  </ItemGroup>
+<!--  <ItemGroup>-->
+<!--    <None Update="Data\app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />-->
+<!--  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="9.0.5" />

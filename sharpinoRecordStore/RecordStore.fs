@@ -36,11 +36,18 @@ module RecordStore =
             itemsViewer: AggregateViewer<Item>
         ) =
 
-        new (configuration: IConfiguration, logger: ILogger<RecordStore>) =
+        new (configuration: IConfiguration, logger: ILogger<RecordStore>) as this =
             let pgEventStore = PgStorage.PgEventStore (configuration.GetValue<string>("sharpinoDb:Connection"))
             let usersViewer = getAggregateStorageFreshStateViewer<User, UserEvents,string> pgEventStore
             let itemsViewer = getAggregateStorageFreshStateViewer<Item, ItemEvents,string> pgEventStore 
             RecordStore (logger, pgEventStore, doNothingBroker, usersViewer, itemsViewer)
+                then
+                    logger.LogInformation("RecordStore created")
+                    // will snapshots all users to force upcast in case of new version
+                    // match
+                    //     this.SnapshotAllItems() with
+                    //     | Ok _ -> logger.LogInformation("Items snapshoted")
+                    //     | Error ex -> logger.LogError(ex.ToString(), "Error snapshoting items")
         
         member this.AddUserAsync (user: User) =
             logger.LogInformation("Adding user")
@@ -78,7 +85,8 @@ module RecordStore =
                 {
                     let! items =
                         StateView.getAllAggregateStates<Item, ItemEvents, string> eventStore
-                    let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId && not i.Deleted)
+                    // let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId && not i.Deleted)
+                    let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId)
                     return result
                 }
        
@@ -91,6 +99,16 @@ module RecordStore =
                     return!
                         ItemCommand.DeleteBy userId
                         |> runAggregateCommand<Item, ItemEvents, string> item.Id eventStore eventBroker 
+                }
+        
+        member this.SnapshotAllItems() =
+            logger.LogInformation("Snapshotting all items")
+            result
+                {
+                    let! snapshotsAll =
+                        StateView.getAllAggregateStates<Item, ItemEvents, string> eventStore
+                        >>= List.traverseResultM (fun (_, item) -> mkAggregateSnapshot<Item, ItemEvents, string> eventStore item.Id)
+                    return ()    
                 }
                 
         member this.GetUser (id: Guid): Result<User, string> =

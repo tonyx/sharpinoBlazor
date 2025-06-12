@@ -300,7 +300,8 @@ CREATE TABLE public.snapshots_01_item (
     snapshot text NOT NULL,
     event_id integer,
     aggregate_id uuid NOT NULL,
-    "timestamp" timestamp without time zone NOT NULL
+    "timestamp" timestamp without time zone NOT NULL,
+    deleted boolean DEFAULT false NOT NULL
 );
 
 
@@ -325,7 +326,8 @@ CREATE TABLE public.snapshots_01_user (
     snapshot text NOT NULL,
     event_id integer,
     aggregate_id uuid NOT NULL,
-    "timestamp" timestamp without time zone NOT NULL
+    "timestamp" timestamp without time zone NOT NULL,
+    deleted boolean DEFAULT false NOT NULL
 );
 
 

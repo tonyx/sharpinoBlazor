@@ -22,4 +22,8 @@
     <PackageReference Include="FsToolkit.ErrorHandling.TaskResult" Version="4.18.0" />
   </ItemGroup>
 
+<!--  <ItemGroup>-->
+<!--    <ProjectReference Include="..\..\realsharpino\Sharpino\Sharpino.Lib\Sharpino.Lib.fsproj" />-->
+<!--  </ItemGroup>-->
+
 </Project>

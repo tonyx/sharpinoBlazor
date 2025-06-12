@@ -28,7 +28,7 @@ let logger: ILogger<RecordStore> = NullLogger<RecordStore>.Instance
 [<Tests>]
 let tests =
     testList "foo" [
-        ftestCaseAsync "check home page" <| async {
+        testCaseAsync "check home page" <| async {
             let! playwright = Playwright.CreateAsync() |> Async.AwaitTask
             let browser = playwright.Chromium.LaunchAsync().Result
             let page = browser.NewPageAsync().Result
@@ -42,7 +42,7 @@ let tests =
             browser.CloseAsync().Wait()
         }
         
-        ftestCaseAsync "register new user" <| async {
+        testCaseAsync "register new user" <| async {
             setUp pgEventStore
             let! playwright = Playwright.CreateAsync() |> Async.AwaitTask
             let browser = playwright.Chromium.LaunchAsync().Result
