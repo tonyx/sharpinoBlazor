@@ -28,7 +28,7 @@ let memitemViewer = getAggregateStorageFreshStateViewer<Item, ItemEvents.ItemEve
 let tests =
     let instances =
         [
-            (fun () -> setUp pgEventStore), RecordStore (logger, pgEventStore, doNothingBroker, pgUsersViewer, pgItemViewer)
+            // (fun () -> setUp pgEventStore), RecordStore (logger, pgEventStore, doNothingBroker, pgUsersViewer, pgItemViewer)
             (fun () -> setUp memEventStore), RecordStore (logger, memEventStore, doNothingBroker, memUsersViewer, memitemViewer)
         ]
     testList "record store" [

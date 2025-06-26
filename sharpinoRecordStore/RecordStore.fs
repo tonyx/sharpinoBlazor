@@ -44,10 +44,10 @@ module RecordStore =
                 then
                     logger.LogInformation("RecordStore created")
                     // will snapshots all users to force upcast in case of new version
-                    // match
-                    //     this.SnapshotAllItems() with
-                    //     | Ok _ -> logger.LogInformation("Items snapshoted")
-                    //     | Error ex -> logger.LogError(ex.ToString(), "Error snapshoting items")
+                    match
+                        this.SnapshotAllItems() with
+                        | Ok _ -> logger.LogInformation("Items snapshoted")
+                        | Error ex -> logger.LogError(ex.ToString(), "Error snapshoting items")
         
         member this.AddUserAsync (user: User) =
             logger.LogInformation("Adding user")
