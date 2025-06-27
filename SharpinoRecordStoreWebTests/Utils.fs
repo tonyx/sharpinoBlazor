@@ -14,7 +14,7 @@ let password = Environment.GetEnvironmentVariable("password")
 let connection =
     "Server=127.0.0.1;"+
     "Database=sharpino_recordstore_test;" +
-    "User Id=safe;"+
+    "User Id=postgres;"+
     $"Password={password}";
 
 let pgEventStore:IEventStore<string> = PgStorage.PgEventStore connection

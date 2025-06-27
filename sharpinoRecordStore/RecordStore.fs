@@ -85,7 +85,6 @@ module RecordStore =
                 {
                     let! items =
                         StateView.getAllAggregateStates<Item, ItemEvents, string> eventStore
-                    // let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId && not i.Deleted)
                     let result = items |>> snd |> List.filter (fun i -> i.OwnerId = userId)
                     return result
                 }

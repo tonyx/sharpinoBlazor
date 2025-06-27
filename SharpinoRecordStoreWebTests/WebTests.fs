@@ -40,6 +40,7 @@ let tests =
             browser.CloseAsync().Wait()
             Expect.equal title "Home" "should be equal"
             browser.CloseAsync().Wait()
+            Expect.isTrue true "should be true"
         }
         
         testCaseAsync "register new user" <| async {
